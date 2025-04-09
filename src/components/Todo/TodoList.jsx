@@ -15,10 +15,9 @@ export default function TodoList({ todoItems = [], setTodos }) {
         <>
           <div
             key={id}
-            className={`bg-white h-14 flex items-center p-1 ${
+            className={`bg-white h-14 flex items-center p-1 dark:bg-[#25273D] ${
               index === 0 && 'rounded-t'
-            } 
-          ${index === todoItems.length - 1 && 'rounded-b'}`}
+            }`}
           >
             <input
               type={'checkbox'}
@@ -27,14 +26,14 @@ export default function TodoList({ todoItems = [], setTodos }) {
               onChange={(e) => handleMarkTodo(e, id)}
             />
             <span
-              className={`text-base text-[#494C6B] ${marked && 'text-[#D1D2DA] line-through'}`}
+              className={`text-base text-[#494C6B] dark:text-[#C8CBE7] ${marked && 'text-[#D1D2DA] line-through'}`}
             >
               {label}
             </span>
           </div>
-          {index !== todoItems.length - 1 && (
-            <div className={'w-full h-[1px] bg-[#E3E4F1]'}></div>
-          )}
+          <div
+            className={'w-full h-[1px] bg-[#E3E4F1] dark:bg-[#979797]'}
+          ></div>
         </>
       ))}
     </div>

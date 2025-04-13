@@ -8,11 +8,11 @@ import { TodoProvider } from './context/TodoContext';
 export default function App() {
   const { theme } = useThemeContext();
   return (
-    <div className="h-screen w-full relative">
+    <div className="bg-cover bg-center">
       {theme === THEMES.DARK ? (
-        <NightBackground className="h-auto w-full bg-cover bg-center" />
+        <NightBackground className="h-auto w-auto md:w-full" />
       ) : (
-        <DayBackground className="h-auto w-full bg-cover bg-center" />
+        <DayBackground className="h-auto w-auto md:w-full" />
       )}
       <TodoProvider>
         <Todo />

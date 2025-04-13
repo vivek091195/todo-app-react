@@ -15,7 +15,7 @@ export default function AddTodo({ handleTodoAddition }) {
   };
 
   return (
-    <div className="bg-white rounded h-14 top-4 flex items-center dark:bg-[#25273D]">
+    <div className="bg-white rounded h-14 top-4 flex items-center dark:bg-[#25273D] shadow-lg">
       <input
         ref={checkedRef}
         type={'checkbox'}

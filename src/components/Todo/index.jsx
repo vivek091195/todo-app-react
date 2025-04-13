@@ -24,7 +24,7 @@ export default function Index() {
   const { theme, toggleTheme } = useThemeContext();
 
   return (
-    <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-1/3">
+    <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-1/3 sm:w-1/2">
       <div className="flex justify-between mb-10">
         <Logo />
         {theme === THEMES.LIGHT ? (

@@ -9,7 +9,7 @@ const TodoActions = ({
 }) => {
   return (
     todos.length > 0 && (
-      <div className="bg-white rounded-b h-14 flex items-center justify-between p-4 dark:bg-[#25273D] shadow-lg">
+      <div className="bg-white rounded-b h-14 flex items-center justify-between p-4 dark:bg-[#25273D] shadow-lg whitespace-nowrap">
         <span className="action-btn font-normal hover:text-[#9495A5]">
           {nonCompletedTodos.current.length > 1
             ? `${nonCompletedTodos.current.length} Items`

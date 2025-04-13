@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 import { ReactComponent as SunIcon } from '../../assets/sun.svg';
 import { ReactComponent as MoonIcon } from '../../assets/moon.svg';
@@ -7,9 +7,19 @@ import AddTodo from './AddTodo';
 import TodoList from './TodoList';
 import { THEMES, useThemeContext } from '../../context/ThemeContext';
 import TodoActions from './TodoActions';
+import { useTodoContext } from '../../context/TodoContext';
 
 export default function Index() {
-  const [todos, setTodos] = useState([]);
+  const {
+    todos,
+    filter,
+    nonCompletedTodos,
+    filteredTodos,
+    handleClearTodos,
+    handleFilterChange,
+    handleTodoAddition,
+    handleCompletedTodos,
+  } = useTodoContext();
   const { theme, toggleTheme } = useThemeContext();
 
   return (
@@ -22,9 +32,18 @@ export default function Index() {
           <MoonIcon className="cursor-pointer" onClick={toggleTheme} />
         )}
       </div>
-      <AddTodo setTodos={setTodos} />
-      <TodoList todoItems={todos} setTodos={setTodos} />
-      <TodoActions todos={todos} />
+      <AddTodo handleTodoAddition={handleTodoAddition} />
+      <TodoList
+        todos={filteredTodos}
+        handleCompletedTodos={handleCompletedTodos}
+      />
+      <TodoActions
+        todos={todos}
+        filter={filter}
+        nonCompletedTodos={nonCompletedTodos}
+        handleFilterChange={handleFilterChange}
+        handleClearTodos={handleClearTodos}
+      />
     </div>
   );
 }

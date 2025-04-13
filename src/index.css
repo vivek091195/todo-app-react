@@ -19,7 +19,11 @@ code {
 
 @layer components {
     .action-btn {
-        @apply border-0 outline-0 bg-transparent text-sm font-bold text-[#9495A5] mr-4 hover:text-[#3A7CFD]
-        dark:text-[#C8CBE7] dark:hover:text-[#3A7CFD];
+        @apply border-0 outline-0 bg-transparent text-sm font-bold text-[#9495A5] mr-4 hover:text-[#3A7CFD] focus:text-[#3A7CFD]
+        dark:text-[#C8CBE7] dark:hover:text-[#3A7CFD] dark:focus:text-[#3A7CFD];
+    }
+
+    .action-btn-active {
+        @apply text-[#3A7CFD] dark:text-[#3A7CFD];
     }
 }

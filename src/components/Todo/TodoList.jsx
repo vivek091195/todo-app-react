@@ -1,17 +1,9 @@
 import React from 'react';
 
-export default function TodoList({ todoItems = [], setTodos }) {
-  const handleMarkTodo = (_, id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((item) =>
-        item.id === id ? { ...item, marked: !item.marked } : item
-      )
-    );
-  };
-
+export default function TodoList({ todos = [], handleCompletedTodos }) {
   return (
     <div className="mt-8 flex flex-col shadow-lg">
-      {todoItems.map(({ id, label, marked }, index) => (
+      {todos.map(({ id, label, marked }, index) => (
         <>
           <div
             key={id}
@@ -22,8 +14,9 @@ export default function TodoList({ todoItems = [], setTodos }) {
             <input
               type={'checkbox'}
               id={'submit-todo'}
+              checked={marked}
               className="ml-4 mr-6 w-6 h-6 rounded-full"
-              onChange={(e) => handleMarkTodo(e, id)}
+              onChange={(e) => handleCompletedTodos(e, id)}
             />
             <span
               className={`text-base text-[#494C6B] dark:text-[#C8CBE7] ${marked && 'text-[#D1D2DA] line-through'}`}

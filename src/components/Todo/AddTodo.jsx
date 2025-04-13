@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { generateRandomNDigitNumber } from '../../utils/helper';
 
-export default function AddTodo({ setTodos }) {
+export default function AddTodo({ handleTodoAddition }) {
   const checkedRef = useRef();
   const [todo, setTodo] = useState('');
 
@@ -9,17 +8,10 @@ export default function AddTodo({ setTodos }) {
     setTodo(target.value);
   };
 
-  const handleTodoAddition = () => {
-    if (!todo) return;
+  const todoAdditionHandler = () => {
     checkedRef.current.checked = false;
     setTodo('');
-    setTodos((prevTodos) => [
-      ...prevTodos,
-      {
-        id: generateRandomNDigitNumber(6),
-        label: todo,
-      },
-    ]);
+    handleTodoAddition(todo);
   };
 
   return (
@@ -29,7 +21,7 @@ export default function AddTodo({ setTodos }) {
         type={'checkbox'}
         id={'submit-todo'}
         className="ml-4 mr-6 w-6 h-6 rounded-full dark:bg-[#25273D]"
-        onChange={handleTodoAddition}
+        onChange={todoAdditionHandler}
       />
 
       <input

@@ -3,6 +3,7 @@ import { ReactComponent as DayBackground } from './assets/day-bg.svg';
 import { ReactComponent as NightBackground } from './assets/night-bg.svg';
 import Todo from './components/Todo';
 import { THEMES, useThemeContext } from './context/ThemeContext';
+import { TodoProvider } from './context/TodoContext';
 
 export default function App() {
   const { theme } = useThemeContext();
@@ -13,7 +14,9 @@ export default function App() {
       ) : (
         <DayBackground className="h-auto w-full bg-cover bg-center" />
       )}
-      <Todo />
+      <TodoProvider>
+        <Todo />
+      </TodoProvider>
     </div>
   );
 }

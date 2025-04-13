@@ -13,6 +13,7 @@ export default function Index() {
   const {
     todos,
     filter,
+    setTodos,
     nonCompletedTodos,
     filteredTodos,
     handleClearTodos,
@@ -35,6 +36,7 @@ export default function Index() {
       <AddTodo handleTodoAddition={handleTodoAddition} />
       <TodoList
         todos={filteredTodos}
+        setTodos={setTodos}
         handleCompletedTodos={handleCompletedTodos}
       />
       <TodoActions
@@ -44,6 +46,11 @@ export default function Index() {
         handleFilterChange={handleFilterChange}
         handleClearTodos={handleClearTodos}
       />
+      {todos.length > 1 && (
+        <span className={'flex justify-center m-4 text-[14px] text-[#9495A5]'}>
+          Drag and drop to reorder list
+        </span>
+      )}
     </div>
   );
 }
